@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Litres books downloader", "Litres books downloader\Litres books downloader.csproj", "{DE5F70B1-FBEF-4E8F-8008-A75489028BFA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE5F70B1-FBEF-4E8F-8008-A75489028BFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE5F70B1-FBEF-4E8F-8008-A75489028BFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE5F70B1-FBEF-4E8F-8008-A75489028BFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE5F70B1-FBEF-4E8F-8008-A75489028BFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {049F8095-4A6B-4677-8918-BBCC611FB05D}
+	EndGlobalSection
+EndGlobal

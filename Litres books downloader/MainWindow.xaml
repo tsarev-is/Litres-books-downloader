@@ -1,0 +1,116 @@
+﻿<Window x:Class="Litres_books_downloader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Litres_books_downloader"
+         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow"
+        Title="Загрузчик книг с Litres" MinWidth="320" MinHeight="340" Width="310" Height="340">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="82"/>
+            <RowDefinition Height="1.1*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Margin="5,0,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="27"/>
+                <RowDefinition Height="27"/>
+                <RowDefinition Height="27"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Логин"
+                   VerticalAlignment="Center" 
+                   HorizontalAlignment="Right"/>
+            <Label Content="Пароль" 
+                   Grid.Row="1"
+                   VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <Label Content="URL или FileID" 
+                   Grid.Row="2"
+                   VerticalAlignment="Center" HorizontalAlignment="Right"/>
+
+            <TextBox x:Name="tbLogin" 
+                     VerticalAlignment="Center" 
+                     Grid.Column="1"
+                     Margin="0,0,5,0"/>
+            <PasswordBox x:Name="tbPassword" 
+                         VerticalAlignment="Center" 
+                         Grid.Column="1" Grid.Row="1" 
+                         Margin="0,0,5,0"/>
+            <TextBox x:Name="tb_BookID" 
+                     Text="" 
+                     Grid.Row="2" Grid.Column="1"
+                     Margin="0,0,5,0" 
+                     VerticalAlignment="Center"/>
+        </Grid>
+
+        <StackPanel  Grid.Row="1">
+
+            <GroupBox Header="Опции" Margin="5,0,5,5">
+                <StackPanel>
+                    <CheckBox Content="Сохранить коллекцию картинок" 
+                              x:Name="chbSaveImages" 
+                              Margin="3"/>
+                    <CheckBox Content="Сохранить в pdf" 
+                              x:Name="chbSavePdf" 
+                              IsChecked="True" 
+                              Margin="3"/>
+                    <CheckBox Content="Работа с фрагментом книги"
+                              x:Name="chbSaveInParts"
+                              IsChecked="{Binding ElementName=spDownloadOption, Path=IsEnabled}"
+                              ToolTip="По умолчанию загружается целая книга"
+                              Margin="3 10 3 3"/>
+                    <StackPanel Orientation="Horizontal" x:Name="spDownloadOption" IsEnabled="False">
+                        <Label Content="Начать с:"/>
+                        <TextBox x:Name="tbBeginWith"
+                                 PreviewTextInput="tb_PreviewTextInput_DigitOnly"
+                                 Width="35" Height="22"/>
+                        <Label Content="до:"/>
+                        <TextBox x:Name="tbEndOn" 
+                                 PreviewTextInput="tb_PreviewTextInput_DigitOnly"
+                                 Width="35" Height="22"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+            <Grid Height="28">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnOpenFirstPage"
+                        Content="Открыть первую стр." 
+                        Click="btn_OpenFirstPage"
+                        Grid.Column="0"
+                        Width="130"/>
+                <Button x:Name="btnSave"
+                        Content="Сохранить" 
+                        Click="btn_SaveBook"
+                        Grid.Column="1" 
+                        Width="130"/>
+            </Grid>
+            <ProgressBar x:Name="pbDownloadProgress"
+                         Maximum="100"
+                         Margin="10" 
+                         Height="18"/>
+            <Grid Margin="10 -10 20 10">
+                <TextBlock Text=""
+                       HorizontalAlignment="Left" 
+                       Name="tbCurrentStatus"/>
+                <TextBlock Text="0 b/s"
+                       HorizontalAlignment="Right" 
+                       Name="tbDownloadSpeed"/>
+            </Grid>
+
+        </StackPanel>
+    </Grid>
+</Window>
